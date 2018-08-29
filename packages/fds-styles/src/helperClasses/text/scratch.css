@@ -1,0 +1,59 @@
+/*
+SCRATCH FILE FOR TEXT CLASES
+*/
+
+:root {
+  --font-size-display: 39px;
+  --font-size-pageHead: 31px;
+  --font-size-sectionHead: 25px;
+  --font-size-minorHead: 20px;
+  --font-size-body: 16px;
+  --font-size-data: 13px;
+  --font-size-tiny: 10px;
+}
+
+body {
+  font-size: 16px;
+}
+
+/*---
+title: Text scratch
+name: textScratch
+section: Text Helpers
+---
+Scratch file/doc for testing out text definitions.
+
+```example:html
+<p class="text--display">Display text</p>
+<p class="text--pageHead">Page head</p>
+<p class="text--sectionHead">Section head</p>
+<p class="text--minorHead">Minor head</p>
+<p>Body text</p>
+<p class="text--data">Data text</p>
+<p class="text--tiny">Tiny text</p>
+```
+*/
+
+.text--display {
+  font-size: var(--font-size-display);
+}
+
+.text--pageHead {
+  font-size: var(--font-size-pageHead);
+}
+
+.text--sectionHead {
+  font-size: var(--font-size-sectionHead);
+}
+
+.text--minorHead {
+  font-size: var(--font-size-minorHead);
+}
+
+.text--data {
+  font-size: var(--font-size-data);
+}
+
+.text--tiny {
+  font-size: var(--font-size-tiny);
+}

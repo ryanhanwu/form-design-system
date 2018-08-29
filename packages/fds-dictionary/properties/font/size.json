@@ -1,0 +1,15 @@
+{
+  "font": {
+    "size": {
+
+      "display":     { "value": "39px" },
+      "pageHead":    { "value": "31px" },
+      "sectionHead": { "value": "25px" },
+      "minorHead":   { "value": "20px" },
+      "default":     { "value": "16px" },
+      "data":        { "value": "13px" },
+      "tiny":        { "value": "10px" }
+
+    }
+  }
+}

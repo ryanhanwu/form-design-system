@@ -8,3 +8,6 @@
 @import "helperClasses/position/align";
 @import "helperClasses/position/valign";
 @import "helperClasses/position/childAlign";
+
+/* Text Helpers */
+@import "helperClasses/text/scratch";
