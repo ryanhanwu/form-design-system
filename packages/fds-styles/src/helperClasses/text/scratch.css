@@ -22,6 +22,14 @@ body {
 /**
 * TODO: split out weight, size, color as helper classes
 * use a different name or section to document
+*
+* TAXONOMY:
+*
+* - Typography (with base readme on defaults on headings and more)
+*   - Text types
+*     - text--display1, text--error, text--caption, etc
+*   - Text helpers
+*     - text--orange, text--light, text--bold, etc
 */
 
 /*---
