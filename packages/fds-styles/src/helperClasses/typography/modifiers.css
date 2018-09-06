@@ -119,6 +119,7 @@ Modifies text transform.
   - does small text need to be different than tiny in line height?
 
 ### Color
+- what is the default background color???
 - should color be completely independent of "type"?
 - how does inverted context work? What should secondary text snap to? Should the backgroudn get absorbed into text color?
 - what color is "default" for text - does it varry based on size/type?
