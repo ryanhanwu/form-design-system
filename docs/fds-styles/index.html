@@ -6,7 +6,7 @@
     <title>fds-styles</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="primer.css" rel="stylesheet"><link href="style.css" rel="stylesheet"><link href="octicons/octicons.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet"><link href="assets/doc.css" rel="stylesheet">
-    <script>examples={"base":"","target":"_self","css":["lib/fds-styles.css"],"js":[],"bodyjs":[],"htmlcss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:0;position:static;width:auto","bodycss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:16px;position:static;width:auto"};</script>
+    <script>examples={"base":"","target":"_self","css":["lib/fds-styles.css","./assets/webfont.css"],"js":[],"bodyjs":[],"htmlcss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:0;position:static;width:auto","bodycss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:16px;position:static;width:auto"};</script>
     
   </head>
   <body>
@@ -49,13 +49,25 @@
         
   
         
-        <a class="menu-heading" href="#text-helpers"><span>Text Helpers</span></a>
+        <a class="menu-heading" href="#typography"><span>Typography</span></a>
         
     
-        <a class="menu-item" href="#textScratch"><span>Text scratch</span></a>
+        <a class="menu-item" href="#typeScale"><span>Type Scale</span></a>
+        
+        
+        <a class="menu-item" href="#textModifiers"><span>Text modifiers</span></a>
         
         
   
+        
+        <a class="menu-heading" href="#textSizeModifiers"><span>Text Size Modifiers</span></a>
+        
+        
+        <a class="menu-heading" href="#textWeightModifiers"><span>Text Weight Modifiers</span></a>
+        
+        
+        <a class="menu-heading" href="#textTransformModifiers"><span>Text Transform Modifiers</span></a>
+        
         
   
           </nav>
@@ -210,37 +222,96 @@ Sets both <code>padding</code> and <code>margin</code> to <code>0</code>;</p>
       </div>
     </section>
     
-    <section id="text-helpers">
-      <h1 class="page-title">Text Helpers</h1>
+    <section id="typography">
+      <h1 class="page-title">Typography</h1>
 
       <div class="markdown-body">
         
         
-    <section id="textScratch">
-      <h2 class="page-title">Text scratch</h2>
+    <section id="typeScale">
+      <h2 class="page-title">Type Scale</h2>
 
       <div class="markdown-body">
-        <p>Scratch file/doc for testing out text definitions.</p>
-<pre><code class="lang-example:html">&lt;p class=&quot;text--display&quot;&gt;Display text&lt;/p&gt;
-&lt;p class=&quot;text--pageHead&quot;&gt;Page head&lt;/p&gt;
-&lt;p class=&quot;text--sectionHead&quot;&gt;Section head&lt;/p&gt;
-&lt;p class=&quot;text--minorHead&quot;&gt;Minor head&lt;/p&gt;
-&lt;p&gt;Body text&lt;/p&gt;
-&lt;p class=&quot;text--data&quot;&gt;Data text&lt;/p&gt;
-&lt;p class=&quot;text--tiny&quot;&gt;Tiny text&lt;/p&gt;
+        <p>Classes that apply styles from our standard type scale.</p>
+<pre><code class="lang-example:html">&lt;p class=&quot;typeset--display&quot;&gt;This is display text&lt;/p&gt;
+&lt;p class=&quot;typeset--pageHead&quot;&gt;Page-level heading&lt;/p&gt;
+&lt;p class=&quot;typeset--sectionHead&quot;&gt;Section-level heading&lt;/p&gt;
+&lt;p class=&quot;typeset--minorHead&quot;&gt;Minor heading&lt;/p&gt;
+&lt;p&gt;Default body text&lt;/p&gt;
+&lt;p class=&quot;typeset--data&quot;&gt;Text for data (e.g. tables)&lt;/p&gt;
+&lt;p class=&quot;typeset--caption&quot;&gt;This is a caption&lt;/p&gt;
 </code></pre>
 
         
       </div>
     </section>
     
+    <section id="textModifiers">
+      <h2 class="page-title">Text modifiers</h2>
+
+      <div class="markdown-body">
+        <p>Utility classes that modify specific type properties using
+standard color/weight/size values.</p>
+<p>Prefer using standard type scale classes; these classes are
+intended to help cover special cases.</p>
+
+        
+      </div>
+    </section>
+    
+      </div>
+    </section>
+    
+    <section id="textSizeModifiers">
+      <h1 class="page-title">Text Size Modifiers</h1>
+
+      <div class="markdown-body">
+        <p>Modifies size of text and adjusts leading accordingly.</p>
+<pre><code class="lang-example:html">&lt;p class=&quot;text--display1&quot;&gt;Display1 size&lt;/p&gt;
+&lt;p class=&quot;text--display2&quot;&gt;Display2 size&lt;/p&gt;
+&lt;p class=&quot;text--display3&quot;&gt;Display3 size&lt;/p&gt;
+&lt;p class=&quot;text--big&quot;&gt;Big size&lt;/p&gt;
+&lt;p&gt;Default body text&lt;/p&gt;
+&lt;p class=&quot;text--small&quot;&gt;Small size&lt;/p&gt;
+&lt;p class=&quot;text--tiny&quot;&gt;Tiny size&lt;/p&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+    <section id="textWeightModifiers">
+      <h1 class="page-title">Text Weight Modifiers</h1>
+
+      <div class="markdown-body">
+        <p>Modifies weight of text.</p>
+<pre><code class="lang-example:html">&lt;p class=&quot;text--bold&quot;&gt;Bold Text&lt;/p&gt;
+&lt;p class=&quot;text--book&quot;&gt;Book Text&lt;/p&gt;
+&lt;p&gt;Default body Text&lt;/p&gt;
+&lt;p class=&quot;typeset--minorHead text--book&quot;&gt;Minor heading modified with book weight&lt;/p&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+    <section id="textTransformModifiers">
+      <h1 class="page-title">Text Transform Modifiers</h1>
+
+      <div class="markdown-body">
+        <p>Modifies text transform.</p>
+<pre><code class="lang-example:html">&lt;p class=&quot;text--caps&quot;&gt;lowercase in source; all caps when rendered&lt;/p&gt;
+&lt;p&gt;Default body Text&lt;/p&gt;
+</code></pre>
+
+        
       </div>
     </section>
     
         </main>
       </div>
       <footer class="footer">
-        Last modified Wednesday, 5 September 2018 23:11
+        Last modified Thursday, 6 September 2018 15:02
       </footer>
     </div>
     <script src="prism.js?871234"></script>

@@ -1,0 +1,130 @@
+
+/*---
+title: Text modifiers
+name: textModifiers
+section: Typography
+---
+Utility classes that modify specific type properties using
+standard color/weight/size values.
+
+Prefer using standard type scale classes; these classes are
+intended to help cover special cases.
+*/
+
+:root {
+  --font-size-display1: 39px;
+  --font-size-display2: 31px;
+  --font-size-display3: 25px;
+  --font-size-big: 20px;
+  --font-size-default: 16px;
+  --font-size-small: 13px;
+  --font-size-tiny: 10px;
+
+  --font-weight-default: 400;
+  --font-weight-bold: 700;
+}
+
+
+/*----
+title: Text Size Modifiers
+name: textSizeModifiers
+parent: Typography
+----
+Modifies size of text and adjusts leading accordingly.
+
+```example:html
+<p class="text--display1">Display1 size</p>
+<p class="text--display2">Display2 size</p>
+<p class="text--display3">Display3 size</p>
+<p class="text--big">Big size</p>
+<p>Default body text</p>
+<p class="text--small">Small size</p>
+<p class="text--tiny">Tiny size</p>
+```
+*/
+
+.text--display1 {
+  font-size: var(--font-size-display1);
+  line-height: var(--font-lineHeight-bigText);
+}
+
+.text--display2 {
+  font-size: var(--font-size-display2);
+  line-height: var(--font-lineHeight-bigText);
+}
+
+.text--display3 {
+  font-size: var(--font-size-display3);
+  line-height: var(--font-lineHeight-bigText);
+}
+
+.text--big {
+  font-size: var(--font-size-big);
+}
+
+.text--small {
+  font-size: var(--font-size-small);
+  line-height: var(--font-lineHeight-smallText);
+}
+
+.text--tiny {
+  font-size: var(--font-size-tiny);
+  line-height: var(--font-lineHeight-tinyText);
+}
+
+/*----
+title: Text Weight Modifiers
+name: textWeightModifiers
+parent: Typography
+----
+Modifies weight of text.
+
+```example:html
+<p class="text--bold">Bold Text</p>
+<p class="text--book">Book Text</p>
+<p>Default body Text</p>
+<p class="typeset--minorHead text--book">Minor heading modified with book weight</p>
+```
+*/
+.text--bold {
+  font-weight: var(--font-weight-bold);
+}
+
+.text--book {
+  font-weight: var(--font-weight-default);
+}
+
+/*----
+title: Text Transform Modifiers
+name: textTransformModifiers
+parent: Typography
+----
+Modifies text transform.
+
+```example:html
+<p class="text--caps">lowercase in source; all caps when rendered</p>
+<p>Default body Text</p>
+```
+*/
+.text--caps {
+  text-transform: uppercase;
+}
+
+
+/**
+## Questions:
+
+### Line Height
+- wtf is up with the baseline grid? how does it work? how does that correspond with line heights?
+  - does small text need to be different than tiny in line height?
+
+### Color
+- should color be completely independent of "type"?
+- how does inverted context work? What should secondary text snap to? Should the backgroudn get absorbed into text color?
+- what color is "default" for text - does it varry based on size/type?
+
+### Named Abstractions
+- are the named abstractions ligned with design intention?
+- is data different than just small text? in color or line height or weight?
+
+*/

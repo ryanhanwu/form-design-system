@@ -9,5 +9,10 @@
 @import "helperClasses/position/valign";
 @import "helperClasses/position/childAlign";
 
-/* Text Helpers */
-@import "helperClasses/text/scratch";
+/* Typography */
+@import "helperClasses/typography/scale";
+@import "helperClasses/typography/modifiers";
+
+body {
+  font-family: Roboto, sans-serif;
+}
