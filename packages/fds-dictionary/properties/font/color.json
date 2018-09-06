@@ -1,0 +1,11 @@
+{
+  "font": {
+    "color": {
+
+      "default":  { "value": "{color.base.charcoal}" },
+      "light":    { "value": "{color.base.slate}" },
+      "lighter":  { "value": "{color.base.gray}" }
+
+    }
+  }
+}

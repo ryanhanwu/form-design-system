@@ -3,18 +3,26 @@ SCRATCH FILE FOR TEXT CLASES
 */
 
 :root {
-  --font-size-display: 39px;
-  --font-size-pageHead: 31px;
-  --font-size-sectionHead: 25px;
-  --font-size-minorHead: 20px;
-  --font-size-body: 16px;
-  --font-size-data: 13px;
+  --font-size-display1: 39px;
+  --font-size-display2: 31px;
+  --font-size-display3: 25px;
+  --font-size-big: 20px;
+  --font-size-default: 16px;
+  --font-size-small: 13px;
   --font-size-tiny: 10px;
+
+  --font-weight--default: 400;
+  --font-weight--bold: 700;
 }
 
 body {
   font-size: 16px;
 }
+
+/**
+* TODO: split out weight, size, color as helper classes
+* use a different name or section to document
+*/
 
 /*---
 title: Text scratch
@@ -35,25 +43,54 @@ Scratch file/doc for testing out text definitions.
 */
 
 .text--display {
-  font-size: var(--font-size-display);
+  font-size: var(--font-size-display1);
+  color: pink; /* some color */
+  font-weight: var(--font-weight--default); /* some weight */
+  line-height: 1.4; /* some line height; match to size (mabye in dict name) */
 }
 
 .text--pageHead {
-  font-size: var(--font-size-pageHead);
+  font-size: var(--font-size-display2);
+  color: pink; /* some color */
+  font-weight: var(--font-weight--default); /* some weight */
+  line-height: 1.4; /* some line height; match to size (mabye in dict name) */
 }
 
 .text--sectionHead {
-  font-size: var(--font-size-sectionHead);
+  font-size: var(--font-size-display3);
+  color: pink; /* some color */
+  font-weight: var(--font-weight--default); /* some weight */
+  line-height: 1.4; /* some line height; match to size (mabye in dict name) */
 }
 
 .text--minorHead {
-  font-size: var(--font-size-minorHead);
+  font-size: var(--font-size-big);
+  color: pink; /* some color */
+  font-weight: var(--font-weight--default); /* some weight */
+  line-height: 1.4; /* some line height; match to size (mabye in dict name) */
 }
 
 .text--data {
-  font-size: var(--font-size-data);
+  font-size: var(--font-size-small);
+  color: pink; /* some color */
+  font-weight: var(--font-weight--default); /* some weight */
+  line-height: 1.4; /* some line height; match to size (mabye in dict name) */
 }
 
-.text--tiny {
+.text--caption {
   font-size: var(--font-size-tiny);
+  color: pink; /* some color */
+  font-weight: var(--font-weight--default); /* some weight */
+  line-height: 1.4; /* some line height; match to size (mabye in dict name) */
 }
+
+
+/**
+Questions:
+- wtf is up with the baseline grid? how does it work? how does that correspond with line heights?
+  - does small text need to be different than tiny in line height?
+- are the named abstractions ligned with design intention?
+- is data different than just small text? in color or line height or weight?
+- what color is "default" for text - does it varry based on size/type?
+- how does inverted context work? What should secondary text snap to? Should the backgroudn get absorbed into text color?
+*/
