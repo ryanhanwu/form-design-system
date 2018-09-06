@@ -86,11 +86,18 @@ Scratch file/doc for testing out text definitions.
 
 
 /**
-Questions:
+## Questions:
+
+### Line Height
 - wtf is up with the baseline grid? how does it work? how does that correspond with line heights?
   - does small text need to be different than tiny in line height?
+
+### Color
+- how does inverted context work? What should secondary text snap to? Should the backgroudn get absorbed into text color?
+- what color is "default" for text - does it varry based on size/type?
+
+### Named Abstractions
 - are the named abstractions ligned with design intention?
 - is data different than just small text? in color or line height or weight?
-- what color is "default" for text - does it varry based on size/type?
-- how does inverted context work? What should secondary text snap to? Should the backgroudn get absorbed into text color?
+
 */
