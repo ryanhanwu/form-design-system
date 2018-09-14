@@ -12,52 +12,101 @@
 }
 
 /*---
-title: Type Scale
-name: typeScale
-section: Typography
+title: Display Heading
+name: displayText
+section: Typesetting
 ---
-Classes that apply styles from our standard type scale.
+Top-level display heading.
 
 ```example:html
 <p class="typeset--display">This is display text</p>
-<p class="typeset--pageHead">Page-level heading</p>
-<p class="typeset--sectionHead">Section-level heading</p>
-<p class="typeset--minorHead">Minor heading</p>
-<p>Default body text</p>
-<p class="typeset--data">Text for data (e.g. tables)</p>
-<p class="typeset--caption">This is a caption</p>
 ```
 */
-
-.typeset--display {
+.typeset--heading1 {
   font-size: var(--font-size-display1);
   font-weight: var(--font-weight-bold);
   line-height: var(--font-lineHeight-bigText);
 }
 
-.typeset--pageHead {
+/*---
+title: Page Heading
+name: pageHeading
+section: Typesetting
+---
+Top-level display heading.
+
+```example:html
+<p class="typeset--pageHead">This is a page heading</p>
+```
+*/
+.typeset--heading2 {
   font-size: var(--font-size-display2);
   font-weight: var(--font-weight-bold);
   line-height: var(--font-lineHeight-bigText);
 }
 
-.typeset--sectionHead {
+/*---
+title: Section Heading
+name: sectionHeading
+section: Typesetting
+---
+Heading for content sections.
+
+```example:html
+<p class="typeset--sectionHead">This is a section heading</p>
+```
+*/
+.typeset--heading3 {
   font-size: var(--font-size-display3);
   font-weight: var(--font-weight-bold);
   line-height: var(--font-lineHeight-bigText);
 }
 
-.typeset--minorHead {
+/*---
+title: Minor Heading
+name: minorHeading
+section: Typesetting
+---
+Small/Minor heading
+
+```example:html
+<p class="typeset--minorHead">This is a minor heading</p>
+```
+*/
+.typeset--heading4 {
   font-size: var(--font-size-big);
   font-weight: var(--font-weight-bold);
   line-height: var(--font-lineHeight-bigText);
 }
 
+/*---
+title: Data
+name: dataText
+section: Typesetting
+---
+Typsetting for data (e.g. tables).
+
+```example:html
+<p class="typeset--data">This is data text. Good for tables.</p>
+```
+*/
 .typeset--data {
   font-size: var(--font-size-small);
   line-height: var(--font-lineHeight-smallText);
 }
 
+/*---
+title: Caption
+name: captionText
+section: Typesetting
+---
+Tiny text for captions and legalese.
+**This is not very readable; only use in special circumstances.**
+
+```example:html
+<p class="typeset--caption">This is a caption. &copy; 2018</p>
+```
+*/
 .typeset--caption {
   font-size: var(--font-size-tiny);
   line-height: var(--font-lineHeight-tinyText);

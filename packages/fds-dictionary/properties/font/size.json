@@ -2,10 +2,10 @@
   "font": {
     "size": {
 
-      "display1": { "value": "39px" },
-      "display2": { "value": "31px" },
-      "display3": { "value": "25px" },
-      "big":      { "value": "20px" },
+      "heading1": { "value": "39px" },
+      "heading2": { "value": "31px" },
+      "heading3": { "value": "25px" },
+      "heading4": { "value": "20px" },
       "default":  { "value": "16px" },
       "small":    { "value": "13px" },
       "tiny":     { "value": "10px" }

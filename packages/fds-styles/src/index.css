@@ -17,5 +17,6 @@
 @import "./helperClasses/position/childAlign";
 
 /* Typography */
-@import "./helperClasses/typography/scale";
-@import "./helperClasses/typography/modifiers";
+@import "./helperClasses/typeset/scale";
+@import "./helperClasses/typemod/size";
+@import "./helperClasses/typemod/weight";

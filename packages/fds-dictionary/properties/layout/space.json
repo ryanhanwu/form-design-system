@@ -1,0 +1,11 @@
+{
+  "layout": {
+    "space": {
+
+      "double":  { "value": "32px" },
+      "default": { "value": "{font.size.default}" },
+      "half":    { "value": "8px" }
+
+    }
+  }
+}

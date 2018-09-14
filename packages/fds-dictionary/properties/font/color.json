@@ -2,9 +2,9 @@
   "font": {
     "color": {
 
-      "default":  { "value": "{color.base.charcoal}" },
-      "light":    { "value": "{color.base.slate}" },
-      "lighter":  { "value": "{color.base.gray}" }
+      "dark":  { "value": "{color.base.charcoal}" },
+      "default":    { "value": "{color.base.slate}" },
+      "light":  { "value": "{color.base.gray}" }
 
     }
   }

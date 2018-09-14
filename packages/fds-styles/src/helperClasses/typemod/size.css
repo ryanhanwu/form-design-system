@@ -1,0 +1,46 @@
+/*----
+title: Size Modifiers
+name: textSizeModifiers
+section: Text Modifiers
+----
+Modifies size of text and adjusts leading accordingly.
+
+```example:html
+<p class="text--display1">Display1 size</p>
+<p class="text--display2">Display2 size</p>
+<p class="text--display3">Display3 size</p>
+<p class="text--big">Big size</p>
+<p>Default body text</p>
+<p class="text--small">Small size</p>
+<p class="text--tiny">Tiny size</p>
+```
+*/
+
+.text--display1 {
+  font-size: var(--font-size-display1);
+  line-height: var(--font-lineHeight-bigText);
+}
+
+.text--display2 {
+  font-size: var(--font-size-display2);
+  line-height: var(--font-lineHeight-bigText);
+}
+
+.text--display3 {
+  font-size: var(--font-size-display3);
+  line-height: var(--font-lineHeight-bigText);
+}
+
+.text--big {
+  font-size: var(--font-size-big);
+}
+
+.text--small {
+  font-size: var(--font-size-small);
+  line-height: var(--font-lineHeight-smallText);
+}
+
+.text--tiny {
+  font-size: var(--font-size-tiny);
+  line-height: var(--font-lineHeight-tinyText);
+}
