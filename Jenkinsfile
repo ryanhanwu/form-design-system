@@ -80,6 +80,7 @@ pipeline {
       steps {
         ansiColor('xterm') {
           sh "docker run ${DOCKER_IMAGE_NAME} yarn build:full"
+          sh "docker logs ${DOCKER_IMAGE_NAME}"
           sh "docker run ${DOCKER_IMAGE_NAME} ls ./packages/fds-dictionary/"
         }
       }
