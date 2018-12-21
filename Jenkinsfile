@@ -2,7 +2,7 @@
 
 /**
 * Set the package version here.
-* `{major}.{minor}.{patch}`
+*run `{major}.{minor}.{patch}`
 *
 * Jenkins populates the patch version with build number.
 */
@@ -19,6 +19,7 @@ String REPO_SLUG = "form-design-system"
 String BRANCH_NAME = "${env.BRANCH_NAME}"
 String DOCKER_IMAGE_NAME = "${REPO_SLUG}:${env.BUILD_NUMBER}"
 String GIT_TAG = "${VERSION}"
+String CONTAINER_NAME = "form-design-system"
 
 switch(BRANCH_NAME) {
   case "master":
@@ -52,18 +53,18 @@ pipeline {
 
     stage('Install Dependencies'){
       steps {
-        sh "docker run ${DOCKER_IMAGE_NAME} yarn install --pure-lockfile"
-        sh "docker exec ${DOCKER_IMAGE_NAME} yarn bootstrap"
+        sh "docker run ${DOCKER_IMAGE_NAME} --name=${CONTAINER_NAMEJ} yarn install --pure-lockfile"
+        sh "docker exec ${CONTAINER_NAME} yarn bootstrap"
 
         // fail if yarn install produces unstaged changes (yarn.lock)
-        sh "docker exec ${DOCKER_IMAGE_NAME} git diff --exit-code"
+        sh "docker exec ${CONTAINER_NAME} git diff --exit-code"
       }
     }
 
     stage('Lint') {
       steps {
         ansiColor('xterm') {
-          sh "docker exec ${DOCKER_IMAGE_NAME} yarn lint"
+          sh "docker exec ${CONTAINER_NAME} yarn lint"
         }
       }
     }
@@ -71,7 +72,7 @@ pipeline {
     stage('Test') {
       steps {
         ansiColor('xterm') {
-          sh "docker exec ${DOCKER_IMAGE_NAME} yarn test"
+          sh "docker exec ${CONTAINER_NAME} yarn test"
         }
       }
     }
@@ -79,8 +80,8 @@ pipeline {
     stage('Build') {
       steps {
         ansiColor('xterm') {
-          sh "docker exec ${DOCKER_IMAGE_NAME} yarn build:full"
-          sh "docker exec ${DOCKER_IMAGE_NAME} ls ./packages/fds-dictionary/"
+          sh "docker exec ${CONTAINER_NAME} yarn build:full"
+          sh "docker exec ${CONTAINER_NAME} ls ./packages/fds-dictionary/"
         }
       }
     }
@@ -88,7 +89,7 @@ pipeline {
     stage('Publish npm packages') {
       steps {
         ansiColor('xterm') {
-          sh "docker exec ${DOCKER_IMAGE_NAME} yarn lerna publish --yes --force-publish --skip-git --npm-tag=${NPM_TAG} --repo-version=${GIT_TAG}"
+          sh "docker exec ${CONTAINER_NAME} yarn lerna publish --yes --force-publish --skip-git --npm-tag=${NPM_TAG} --repo-version=${GIT_TAG}"
         }
       }
     }
