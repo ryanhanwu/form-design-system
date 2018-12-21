@@ -53,7 +53,8 @@ pipeline {
 
     stage('Install Dependencies'){
       steps {
-        sh "docker run --name=${CONTAINER_NAME} yarn install --pure-lockfile"
+        sh "docker run --name=${CONTAINER_NAME} bash"
+        sh "docker exec -it ${CONTAINER_NAME} yarn install --pure-lockfile"
         sh "docker exec -it ${CONTAINER_NAME} yarn bootstrap"
 
         // fail if yarn install produces unstaged changes (yarn.lock)
