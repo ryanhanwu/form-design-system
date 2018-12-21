@@ -53,18 +53,18 @@ pipeline {
 
     stage('Install Dependencies'){
       steps {
-        sh "docker run ${DOCKER_IMAGE_NAME} --name=${CONTAINER_NAMEJ} yarn install --pure-lockfile"
-        sh "docker exec ${CONTAINER_NAME} yarn bootstrap"
+        sh "docker run --name=${CONTAINER_NAMEJ} yarn install --pure-lockfile"
+        sh "docker exec -it ${CONTAINER_NAME} yarn bootstrap"
 
         // fail if yarn install produces unstaged changes (yarn.lock)
-        sh "docker exec ${CONTAINER_NAME} git diff --exit-code"
+        sh "docker exec -it ${CONTAINER_NAME} git diff --exit-code"
       }
     }
 
     stage('Lint') {
       steps {
         ansiColor('xterm') {
-          sh "docker exec ${CONTAINER_NAME} yarn lint"
+          sh "docker exec -it ${CONTAINER_NAME} yarn lint"
         }
       }
     }
@@ -72,7 +72,7 @@ pipeline {
     stage('Test') {
       steps {
         ansiColor('xterm') {
-          sh "docker exec ${CONTAINER_NAME} yarn test"
+          sh "docker exec -it ${CONTAINER_NAME} yarn test"
         }
       }
     }
@@ -80,8 +80,8 @@ pipeline {
     stage('Build') {
       steps {
         ansiColor('xterm') {
-          sh "docker exec ${CONTAINER_NAME} yarn build:full"
-          sh "docker exec ${CONTAINER_NAME} ls ./packages/fds-dictionary/"
+          sh "docker exec -it ${CONTAINER_NAME} yarn build:full"
+          sh "docker exec -it ${CONTAINER_NAME} ls ./packages/fds-dictionary/"
         }
       }
     }
@@ -89,7 +89,7 @@ pipeline {
     stage('Publish npm packages') {
       steps {
         ansiColor('xterm') {
-          sh "docker exec ${CONTAINER_NAME} yarn lerna publish --yes --force-publish --skip-git --npm-tag=${NPM_TAG} --repo-version=${GIT_TAG}"
+          sh "docker exec -it ${CONTAINER_NAME} yarn lerna publish --yes --force-publish --skip-git --npm-tag=${NPM_TAG} --repo-version=${GIT_TAG}"
         }
       }
     }
