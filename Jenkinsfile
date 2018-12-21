@@ -19,7 +19,7 @@ String REPO_SLUG = "form-design-system"
 String BRANCH_NAME = "${env.BRANCH_NAME}"
 String DOCKER_IMAGE_NAME = "${REPO_SLUG}:${env.BUILD_NUMBER}"
 String GIT_TAG = "${VERSION}"
-String CONTAINER_NAME = "form-design-system"
+String CONTAINER_NAME = "form-design-system-${VERSION}"
 
 switch(BRANCH_NAME) {
   case "master":
