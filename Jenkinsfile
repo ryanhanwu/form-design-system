@@ -2,7 +2,7 @@
 
 /**
 * Set the package version here.
-*run `{major}.{minor}.{patch}`
+* `{major}.{minor}.{patch}`
 *
 * Jenkins populates the patch version with build number.
 */
@@ -19,7 +19,7 @@ String REPO_SLUG = "form-design-system"
 String BRANCH_NAME = "${env.BRANCH_NAME}"
 String DOCKER_IMAGE_NAME = "${REPO_SLUG}:${env.BUILD_NUMBER}"
 String GIT_TAG = "${VERSION}"
-String CONTAINER_NAME = "form-design-system-${VERSION}"
+String CONTAINER_NAME = "jenkins"
 
 switch(BRANCH_NAME) {
   case "master":
@@ -54,11 +54,20 @@ pipeline {
     stage('Start Docker container'){
       steps {
         ansiColor('xterm'){
-          sh "docker run -d --name=${CONTAINER_NAME} ${DOCKER_IMAGE_NAME}"
+          sh "docker container run -d --name=${CONTAINER_NAME} ${DOCKER_IMAGE_NAME} -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock ${DOCKER_IMAGE_NAME}"
         }
       }
     }
 
+    stage('Test Docker container'){
+      steps {
+        ansiColor('xterm'){
+          sh "docker container ls"
+        }
+      }
+    }
+
+/*
     stage('Install Dependencies'){
       steps {
         sh "docker exec -i ${CONTAINER_NAME} yarn install --pure-lockfile"
@@ -110,4 +119,5 @@ pipeline {
     }
 
   }
+  */
 }
