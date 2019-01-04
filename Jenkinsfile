@@ -52,7 +52,7 @@ pipeline {
       }
     }
 
-    stage('Start Docker container'){
+    stage('Start detached Docker container'){
       steps {
         ansiColor('xterm'){
           sh "docker container run -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock ${DOCKER_IMAGE_NAME}"
@@ -60,29 +60,20 @@ pipeline {
       }
     }
 
-    stage('Test Docker container'){
-      steps {
-        ansiColor('xterm'){
-          sh "docker container ls"
-        }
-      }
-    }
-
-/*
     stage('Install Dependencies'){
       steps {
-        sh "docker exec -i ${CONTAINER_NAME} yarn install --pure-lockfile"
-        sh "docker exec -i ${CONTAINER_NAME} yarn bootstrap"
+        sh "docker container yarn install --pure-lockfile"
+        sh "docker container yarn bootstrap"
 
         // fail if yarn install produces unstaged changes (yarn.lock)
-        sh "docker exec -i ${CONTAINER_NAME} git diff --exit-code"
+        sh "docker container git diff --exit-code"
       }
     }
 
     stage('Lint') {
       steps {
         ansiColor('xterm') {
-          sh "docker exec -i ${CONTAINER_NAME} yarn lint"
+          sh "docker container yarn lint"
         }
       }
     }
@@ -90,11 +81,12 @@ pipeline {
     stage('Test') {
       steps {
         ansiColor('xterm') {
-          sh "docker exec -i ${CONTAINER_NAME} yarn test"
+          sh "docker container yarn test"
         }
       }
     }
 
+    /*
     stage('Build') {
       steps {
         ansiColor('xterm') {
