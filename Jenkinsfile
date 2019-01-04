@@ -55,7 +55,7 @@ pipeline {
     stage('Start Docker container'){
       steps {
         ansiColor('xterm'){
-          sh "docker container run -d --name=${CONTAINER_NAME} ${DOCKER_IMAGE_NAME} -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock ${DOCKER_IMAGE_NAME}"
+          sh "docker container run -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock ${DOCKER_IMAGE_NAME}"
         }
       }
     }
