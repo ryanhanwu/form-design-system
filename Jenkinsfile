@@ -62,18 +62,18 @@ pipeline {
 
     stage('Install Dependencies'){
       steps {
-        sh "docker container yarn install --pure-lockfile"
-        sh "docker container yarn bootstrap"
+        sh "docker container exec -i yarn install --pure-lockfile"
+        sh "docker container exec -i yarn bootstrap"
 
         // fail if yarn install produces unstaged changes (yarn.lock)
-        sh "docker container git diff --exit-code"
+        sh "docker container exec -i git diff --exit-code"
       }
     }
 
     stage('Lint') {
       steps {
         ansiColor('xterm') {
-          sh "docker container yarn lint"
+          sh "docker container exec -i yarn lint"
         }
       }
     }
@@ -81,7 +81,7 @@ pipeline {
     stage('Test') {
       steps {
         ansiColor('xterm') {
-          sh "docker container yarn test"
+          sh "docker container exec -i yarn test"
         }
       }
     }
