@@ -55,7 +55,7 @@ pipeline {
     stage('Start detached Docker container'){
       steps {
         ansiColor('xterm'){
-          sh "docker run --name=${CONTAINER_NAME} -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock ${DOCKER_IMAGE_NAME}"
+          sh "docker run --name=${CONTAINER_NAME} -d ${DOCKER_IMAGE_NAME}"
         }
       }
     }
@@ -86,7 +86,6 @@ pipeline {
       }
     }
 
-    /*
     stage('Build') {
       steps {
         ansiColor('xterm') {
@@ -110,7 +109,6 @@ pipeline {
         sh "git push --tags"
       }
     }
-    */
 
   }
 }
