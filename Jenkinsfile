@@ -51,9 +51,16 @@ pipeline {
       }
     }
 
+    stage('Start Docker container'){
+      steps {
+        ansiColor('xterm'){
+          sh "docker run -d --name=${CONTAINER_NAME} bash"
+        }
+      }
+    }
+
     stage('Install Dependencies'){
       steps {
-        sh "docker run --name=${CONTAINER_NAME} bash"
         sh "docker exec -i ${CONTAINER_NAME} yarn install --pure-lockfile"
         sh "docker exec -i ${CONTAINER_NAME} yarn bootstrap"
 
