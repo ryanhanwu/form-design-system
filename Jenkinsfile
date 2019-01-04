@@ -54,7 +54,7 @@ pipeline {
     stage('Start Docker container'){
       steps {
         ansiColor('xterm'){
-          sh "docker run -d --name=${CONTAINER_NAME} bash"
+          sh "docker run -d --name=${CONTAINER_NAME} ${DOCKER_IMAGE_NAME}"
         }
       }
     }
