@@ -19,7 +19,6 @@ String REPO_SLUG = "form-design-system"
 String BRANCH_NAME = "${env.BRANCH_NAME}"
 String DOCKER_IMAGE_NAME = "${REPO_SLUG}:${env.BUILD_NUMBER}"
 String GIT_TAG = "${VERSION}"
-String CONTAINER_NAME = "jenkins"
 
 switch(BRANCH_NAME) {
   case "master":
@@ -29,6 +28,8 @@ switch(BRANCH_NAME) {
     GIT_TAG = "${VERSION}-beta"
     break
 }
+
+String CONTAINER_NAME = "fds-${GIT_TAG}"
 
 pipeline {
   agent {
