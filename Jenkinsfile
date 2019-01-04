@@ -117,7 +117,7 @@ pipeline {
         sh "git push --tags"
       }
     }
+    */
 
   }
-  */
 }
