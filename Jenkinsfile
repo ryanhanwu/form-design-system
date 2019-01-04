@@ -29,7 +29,7 @@ switch(BRANCH_NAME) {
     break
 }
 
-String CONTAINER_NAME = "fds-${GIT_TAG}"
+String CONTAINER_NAME = "jenkins-fds-${GIT_TAG}"
 
 pipeline {
   agent {
@@ -55,25 +55,25 @@ pipeline {
     stage('Start detached Docker container'){
       steps {
         ansiColor('xterm'){
-          sh "docker container run -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock ${DOCKER_IMAGE_NAME}"
+          sh "docker container run --name=${CONTAINER_NAME} -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock ${DOCKER_IMAGE_NAME}"
         }
       }
     }
 
     stage('Install Dependencies'){
       steps {
-        sh "docker container exec -i yarn install --pure-lockfile"
-        sh "docker container exec -i yarn bootstrap"
+        sh "docker container exec -i ${CONTAINER_NAME} yarn install --pure-lockfile"
+        sh "docker container exec -i ${CONTAINER_NAME} yarn bootstrap"
 
         // fail if yarn install produces unstaged changes (yarn.lock)
-        sh "docker container exec -i git diff --exit-code"
+        sh "docker container exec -i ${CONTAINER_NAME} git diff --exit-code"
       }
     }
 
     stage('Lint') {
       steps {
         ansiColor('xterm') {
-          sh "docker container exec -i yarn lint"
+          sh "docker container exec ${CONTAINER_NAME} -i yarn lint"
         }
       }
     }
@@ -81,7 +81,7 @@ pipeline {
     stage('Test') {
       steps {
         ansiColor('xterm') {
-          sh "docker container exec -i yarn test"
+          sh "docker container exec -i ${CONTAINER_NAME} yarn test"
         }
       }
     }
