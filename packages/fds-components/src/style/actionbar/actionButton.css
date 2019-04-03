@@ -1,0 +1,7 @@
+/**
+* Action buttons in `ActionBar`
+*/
+
+.actionButton.root {
+  background: pink;
+}
