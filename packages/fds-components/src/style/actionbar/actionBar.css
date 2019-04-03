@@ -1,3 +1,15 @@
 .actionBar {
-  background: lime;
+  background: #FAFAFA; /* we may want to consider adding this to fds-dictionary */
+  border: 1px solid lightblue;
+  padding-right: var(--space-default);
+}
+
+.actionBar-actions {
+  display: inline-block;
+}
+
+.actionBar-actions--allocate {
+  border-left: 1px solid var(--color-timberwolf);
+  border-right: 1px solid var(--color-timberwolf);
+  padding: 0 var(--spacing-half);
 }

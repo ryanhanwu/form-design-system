@@ -1,7 +1,23 @@
 /**
 * Action buttons in `ActionBar`
+*
+* Lots of importants here to override material-ui.
 */
 
-.actionButton.root {
-  background: pink;
+.actionButton {
+  border-radius: 0 !important;
+  transition: all 250ms var(--motion-easing-default);
+  min-width: var(--media-xl) !important;
+}
+
+.actionButton:hover {
+  background: #e0ecf3 !important; /* consider adding to fds-dictionary */
+}
+
+.actionButton:hover .menuButton-label {
+  color: var(--color-blue) !important;
+}
+
+.actionButton:hover svg {
+  fill: var(--color-navy) !important;
 }

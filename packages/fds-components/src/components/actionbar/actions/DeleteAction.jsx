@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HideIcon from 'fds-icons/lib/react/HideIcon';
+import TrashIcon from 'fds-icons/lib/react/TrashIcon';
 import ActionButton from '../ActionButton';
 
-const HideAction = ({ onClick, ...other }) => (
+const DeleteAction = ({ onClick, ...other }) => (
   <ActionButton
-    iconComponent={<HideIcon size="s" />}
-    label="Hide"
+    iconComponent={<TrashIcon size="s" />}
+    label="Delete"
     onClick={onClick}
     {...other}
   />
 );
 
-HideAction.propTypes = {
+DeleteAction.propTypes = {
   /** Click callback for button */
   onClick: PropTypes.func.isRequired,
 
@@ -20,4 +20,4 @@ HideAction.propTypes = {
   disabled: PropTypes.bool,
 };
 
-export default HideAction;
+export default DeleteAction;
