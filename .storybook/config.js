@@ -22,10 +22,4 @@ addDecorator(centered);
 addDecorator(withPropsTable);
 addDecorator(jsxDecorator);
 
-// automatically import all files ending in *.stories.js
-const req = require.context('../src/components', true, /\.stories\.js$/);
-function loadStories() {
-  req.keys().forEach((filename) => req(filename));
-}
-
-configure(loadStories, module);
+configure(require.context('../src/components', true, /\.stories\.(js|mdx)$/), module);
