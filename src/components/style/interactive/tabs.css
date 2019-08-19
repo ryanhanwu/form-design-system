@@ -1,0 +1,23 @@
+.fdsTabs {
+  border-bottom: 1px solid #d8d8d8;
+  margin-bottom: -1px;
+}
+
+.fdsTabs-innerwrapper {
+  margin-bottom: -1px;
+}
+
+.fdsTab {
+  display: inline-block;
+  font-size: 24px;
+  font-family: var(--font-family-condensed);
+  padding: 16px;
+  line-height: 1;
+  color: var(--font-color-secondary);
+  border-bottom: 2px solid transparent;
+}
+
+.fdsTab--active {
+  color: #003366;
+  border-bottom-color: #003366;
+}
